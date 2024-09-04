@@ -1,0 +1,691 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 1rem;
+  background-color: #f7f7f7;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  line-height: 1.5;
+  color: #121212;
+}
+textarea,
+input,
+button {
+  font-size: 1rem;
+  font-family: inherit;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  box-shadow: 0 0px 1px hsla(0, 0%, 0%, 0.2), 0 1px 2px hsla(0, 0%, 0%, 0.2);
+  background-color: white;
+  line-height: 1.5;
+  margin: 0;
+}
+button {
+  color: #3992ff;
+  font-weight: 500;
+}
+
+textarea:hover,
+input:hover,
+button:hover {
+  box-shadow: 0 0px 1px hsla(0, 0%, 0%, 0.6), 0 1px 2px hsla(0, 0%, 0%, 0.2);
+}
+
+button:active {
+  box-shadow: 0 0px 1px hsla(0, 0%, 0%, 0.4);
+  transform: translateY(1px);
+}
+
+#contact h1 {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+#contact h1 form {
+  display: flex;
+  align-items: center;
+  margin-top: 0.25rem;
+}
+#contact h1 form button {
+  box-shadow: none;
+  font-size: 1.5rem;
+  font-weight: 400;
+  padding: 0;
+}
+#contact h1 form button[value="true"] {
+  color: #a4a4a4;
+}
+#contact h1 form button[value="true"]:hover,
+#contact h1 form button[value="false"] {
+  color: #eeb004;
+}
+
+form[action$="destroy"] button {
+  color: #f44250;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+#root {
+  display: flex;
+  height: auto;
+  width: 100%;
+}
+
+#sidebar {
+  width: 25rem;
+  background-color: #f7f7f7;
+  border-right: solid 1px #e3e3e3;
+  display: flex;
+  flex-direction: column;
+}
+
+#sidebar > * {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+#sidebar h1 {
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 1rem 2rem;
+  border-top: 1px solid #e3e3e3;
+  order: 1;
+  line-height: 1;
+}
+
+
+
+#sidebar > div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #e3e3e3;
+  margin: 0 auto;
+  width: 100%;
+}
+
+#sidebar > div form {
+  position: relative;
+}
+
+#sidebar > div form input[type="search"] {
+  width: 100%;
+  padding-left: 2rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='%23999' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z' /%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 0.625rem 0.75rem;
+  background-size: 1rem;
+  position: relative;
+}
+
+#sidebar > div form input[type="search"].loading {
+  background-image: none;
+}
+
+
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#sidebar nav {
+  flex: 1;
+  overflow: auto;
+  padding-top: 1rem;
+}
+
+#sidebar nav a span {
+  float: right;
+  color: #eeb004;
+}
+#sidebar nav a.active span {
+  color: inherit;
+}
+
+i {
+  color: #818181;
+}
+#sidebar nav .active i {
+  color: inherit;
+}
+
+#sidebar ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+#sidebar li {
+  margin: 0.25rem 0;
+}
+
+#sidebar nav a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+
+  white-space: pre;
+  padding: 0.5rem;
+  border-radius: 8px;
+  color: inherit;
+  text-decoration: none;
+  gap: 1rem;
+}
+
+#sidebar nav a:hover {
+  background: #e3e3e3;
+}
+
+#sidebar nav a.active {
+  background: hsl(224, 98%, 58%);
+  color: white;
+}
+
+#sidebar nav a.pending {
+  color: hsl(224, 98%, 58%);
+}
+
+#detail {
+  flex: 1;
+  padding: 2rem 4rem;
+  width: 100%;
+}
+
+
+
+
+
+
+.btn {
+  width: 100%;
+ cursor: pointer
+}
+.input {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+button {
+  cursor: pointer;
+}
+
+
+.action-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+
+
+/* flexbox start */
+
+
+/* .container {
+  background-color: #ccc;
+  padding: 10px;
+  width: 100%;
+  height: 1000px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: flex-start;
+} */
+
+/* .item { */
+  /* background-color: #f1425d;
+  padding: 30px;
+  margin: 5px;
+  color: #fff;
+  font-size: 40px; */
+  /* flex: 1; */
+/* } */
+
+/* .i2 { */
+  /* height: 200px; */
+  /* order: 2; */
+  /* flex-grow: 3; or flex: 1 flex grow glex shrink flex basis*/
+  /* flex: 1; */
+  /* flex-grow: 0; */
+  /* flex-basis: 300px; */
+  /* flex-shrink: 1; */
+  /* flex: 0 1 300px; */
+  /* //grow shrink basis */
+
+/* } */
+
+/* .i3 {
+  order: 1;
+  flex: 3;
+} */
+
+/* .i4 { */
+  /* align-self: stretch; */
+  /* order: -1 */
+/* } */
+
+/* .i5 {
+  flex: 1
+} */
+
+/* flexbox end */
+
+
+
+/* .container {
+  background-color: #eee;
+  width: 1000px;
+  margin: 30px auto;
+  display: grid; */
+  /* grid-template-rows: 150px 150px 150px; */
+  /* grid-template-rows: repeat(2, 150px); */
+  /* grid-template-columns: 200px 200px 200px; */
+  /* grid-template-columns: repeat(3, 1fr); */
+  /* grid-template-columns: 1fr 2fr 1fr; */
+  /* grid-gap: 10px;
+}
+
+.item {
+  padding: 20px;
+  font-size: 30px;
+  font-family: Arial, sans-serif;
+  color: #fff;
+} */
+
+/* .item--1 { */
+  /* background-color: orangered; */
+  /* grid-column: 2 / 3;
+  grid-row: 2 / 3; */
+  /* grid-row: span 3; */
+/* } */
+
+/* .item--2 { */
+  /* background-color: yellowgreen; */
+  /* grid-column: 2 / 4; */
+  /* grid-column: 2 / -1; */
+ 
+/* } */
+
+/* .item--3 {
+  background-color: blueviolet;
+}
+
+.item--4 {
+  background-color: palevioletred;
+  grid-column: span 2;
+}
+
+.item--5 {
+  background-color: royalblue;
+  
+} */
+
+/* .item--6 { */
+  /* background-color: goldenrod; */
+  /* grid-row: 1/2;
+  grid-column: 2/3; */
+/* } */
+
+
+/* /grid-challenge */
+
+
+/* .container {
+  text-transform: capitalize;
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-rows: 100px 200px 50% 100px;
+  grid-template-columns: repeat(4, 1fr);
+  height: 100vh;
+  width: 75%;
+  margin: 0 auto;
+} */
+
+/* .item {
+  margin: 10px;
+  background-color: red;
+  padding: 20px;
+
+} */
+
+/* .item--1 {
+ grid-column: 1 / -1;
+}
+
+.item--2 {
+
+}
+
+.item--3 {
+
+}
+
+.item--4 {
+
+} */
+
+/* .item--5 { */
+  /* grid-coloumn: 4 / 5; */
+  /* grid-row: 2 / 4; */
+  /* grid-row: span 2;
+}
+
+.item--6 {
+ grid-column: 1 / span 3;
+}
+
+.item--7 {
+  grid-column: 1 / -1;
+  grid-row: 4 / 5;
+} */
+
+
+/* naming grid lines */
+
+/* .container {
+ text-transform: capitalize;
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  display: grid;
+  grid-gap: 10px;
+   grid-template-rows: 100px 200px 50% 100px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: 
+  "header header header header"
+  "sb1 sb2 sb3 sidebar"
+  "main main main sidebar"
+  "footer footer footer footer";
+  height: 100vh;
+  width: 75%;
+  margin: 0 auto;
+}
+
+
+.item--1 {
+  grid-area: header;
+}
+
+.item--2 {
+  grid-area: sb1;
+}
+
+.item--3 {
+  grid-area: sb2;
+}
+
+.item--4 {
+  grid-area: sb3;
+} */
+
+/* .item--5 { */
+  /* grid-coloumn: 4 / 5; */
+  /* grid-row: 2 / 4; */
+  /* grid-row: span 2; */
+  /* grid-area: sidebar;
+} */
+
+/* .item--6 { */
+ /* grid-column: 1 / span 3; */
+ /* grid-area: main; */
+/* } */
+
+/* .item--7 { */
+  /* grid-column: 1 / -1; */
+  /* grid-row: 4 / 5; */
+  /* grid-area: footer; */
+/* } */
+
+
+
+
+/* implicit and explicit grid */
+
+/* .container {
+ width: 1000px;
+ margin: 30px auto;
+ background-color: #ddd;
+ display: grid;
+ grid-template-rows: repeat(2, 100px);
+ grid-template-columns: repeat(2, 200px);
+ grid-gap: 30px;
+ padding: 10px;
+ height: 1000px;
+ justify-content: center;
+ align-content: center; */
+ 
+ /* justify-items: center; */
+/* align-items: center; default is stretch. center, end, start */
+ /* implicit grid style */
+
+
+ /* this is useful when you dont really know the amount of columns or rows you will have, maybe when you make an ajax call, so you can automatically style with grid-auto-flow */
+ /* grid-auto-rows: 80px; */
+ /* implicit grid style */
+ /* //dene means no holes */
+ /* grid-auto-flow: row dense; 
+ grid-auto-columns: .5fr;
+} */
+
+/* .item {
+  background-color: red;
+  padding: 10px;
+  color: #fff;
+  font-family:sans-serif;
+  font-size: 30px;
+} */
+
+/* .item--4 { */
+  /* grid-row: 2 / span 3; */
+  /* align-self: stretch;  */
+  /* justify-self: center; */
+/* } */
+
+/* .item--6 {
+  background-color: lightcoral;
+  grid-row: 2 / span 2;
+} */
+
+/* .item--7 {
+   background-color: palevioletred;
+   grid-column: 1 / -1;
+} */
+
+
+/* using mincontent, maxcontent and minmax function */
+
+/* .container {
+ width: 1000px;
+ margin: 30px auto;
+ background-color: #ddd;
+ display: grid; */
+
+ /* using min content and max-content */
+ /* grid-template-rows: repeat(2, 150px); */
+ /* grid-template-columns: max-content 1fr 1fr min-content; */
+ /* grid-template-rows: repeat(2, min-content); */
+
+
+
+
+ /* using min max function */
+ /* minmax(x,y)  means stay between x and y*/
+ /* grid-template-rows: repeat(2, minmax(150px, min-content));
+ grid-template-columns: minmax(200px, 1fr) repeat(3, 1fr);
+
+width: 90%;
+ grid-gap: 30px;
+ padding: 10px;
+ height: 1000px;
+ grid-gap: 10px; */
+ /* grid-auto-flow: column; */
+/* } */
+
+/* .item {
+  background-color: red;
+  padding: 10px;
+  color: #fff;
+  font-family:sans-serif;
+  font-size: 30px;
+}
+
+.item--1 {
+  background-color: orangered;
+ 
+}
+
+.item--2 {
+  background-color: yellowgreen;
+ 
+}
+
+.item--3 {
+  background-color: blueviolet;
+ 
+}
+
+.item--4 {
+  background-color: palevioletred;
+ 
+}
+
+.item--5 {
+  background-color: royalblue;
+ 
+}
+
+.item--6 {
+  background-color: goldenrod;
+}
+
+.item--7 {
+  background-color: crimson;
+}
+
+.item--8 {
+  background-color: darkslategrey;
+ 
+}
+ */
+
+
+
+ /* using autofits and autofills */
+
+ .container {
+  width: 1000px;
+ margin: 30px auto;
+ background-color: #ddd;
+  display: grid;
+  width: 90%;
+  /* two rows, but the maximum will be min-content and minium 150px */
+  grid-template-rows: repeat(2, minmax(150px, min-content));
+  grid-template-columns: repeat(auto-fill, 100px);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+  /* this two styles are to style the implcit grids */
+  grid-auto-flow: row dense;
+  grid-auto-rows: minmax(150px, auto);
+
+ }
+
+ .item {
+  background-color: red;
+  padding: 10px;
+  color: #fff;
+  font-family:sans-serif;
+  font-size: 30px;
+}
+
+.item--1 {
+  background-color: orangered;
+ 
+}
+
+.item--2 {
+  background-color: yellowgreen;
+ 
+}
+
+.item--3 {
+  background-color: blueviolet;
+ 
+}
+
+.item--4 {
+  background-color: palevioletred;
+ 
+}
+
+.item--5 {
+  background-color: royalblue;
+ 
+}
+
+.item--6 {
+  background-color: goldenrod;
+}
+
+.item--7 {
+  background-color: crimson;
+}
+
+.item--8 {
+  background-color: darkslategrey;
+ 
+}
+
