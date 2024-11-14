@@ -52,7 +52,7 @@ const SearchTodo = ({ handleInputChange, fetchAllTodos,setQuery,query
       <TextField
         fullWidth
         variant="outlined"
-        placeholder="Search Todo"
+        placeholder="Search Todo and Tags"
         margin="normal"
         type="text"
         name="q"
