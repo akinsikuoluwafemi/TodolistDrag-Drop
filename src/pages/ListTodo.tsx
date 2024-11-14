@@ -23,7 +23,7 @@ const ListTodo = () => {
   const dispatch = useDispatch();
   
 
-  const onDragEnd = async (result: {}) => {
+  const onDragEnd = async (result: any) => {
     const { source, destination } = result;
 
     // If there's no destination, do nothing

@@ -29,7 +29,7 @@ type ValuePiece = Date | null
 
 const TodoForm = ({ todo, action, type }: TodoFormProps) => {
   const dispatch = useDispatch();
-  const [value, onChange] = useState<ValuePiece>(new Date());
+  const [value, onChange] = useState<any>(new Date());
   const [dateVal, setDateVal] = useState<ValuePiece>(todo?.deadline ? new Date(todo?.deadline) : new Date());
   const [tags, setTags] = useState<string[]>([]);
   const [allTags, setAllTags] = useState<string[]>([]);
@@ -87,11 +87,11 @@ const TodoForm = ({ todo, action, type }: TodoFormProps) => {
       const AllTags = editedUniqueTags.filter((t) => t !== tag);
       setEditedUniqueTags(AllTags);
       setEditedTags(AllTags);
-      const editedTodo = {
-        ...todo,
-        tags: AllTags,
-        updatedAt: new Date().toISOString(),
-      } as ITodo;
+      // const editedTodo = {
+      //   ...todo,
+      //   tags: AllTags,
+      //   updatedAt: new Date().toISOString(),
+      // } as ITodo;
     } else if (type === "create") { 
       const AllTag = allTags.filter((t) => t !== tag);
       setAllTags(AllTag);
@@ -195,7 +195,7 @@ const TodoForm = ({ todo, action, type }: TodoFormProps) => {
               >
                 <span>Edit Deadline</span>
                 <DatePicker
-                  onChange={(val) => {
+                  onChange={(val: any) => {
                     setDateVal(val?.toISOString());
                   }}
                   value={dateVal}

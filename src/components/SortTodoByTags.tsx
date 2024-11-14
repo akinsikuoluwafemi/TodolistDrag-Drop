@@ -45,7 +45,7 @@ const SortTodoByTags = () => {
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          {allTodoTags.map((tag: string) => (
+          {[] || allTodoTags && allTodoTags.map((tag: string) => (
             <MenuItem key={tag} value={tag}>
               {tag}
             </MenuItem>

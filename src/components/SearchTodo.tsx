@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { searchTodos, selectTodos } from '../state/todos/todoSlice';
+import { useDispatch } from 'react-redux';
+import { searchTodos,  } from '../state/todos/todoSlice';
 import { Form } from 'react-router-dom';
 import { TextField, Typography } from '@mui/material';
 
@@ -14,7 +14,7 @@ interface SearchTodoProps {
 const SearchTodo = ({ handleInputChange, fetchAllTodos,setQuery,query
  }: SearchTodoProps) => {
   const dispatch = useDispatch();
-  const allTodos = useSelector(selectTodos);
+  // const allTodos = useSelector(selectTodos);
 
   
 

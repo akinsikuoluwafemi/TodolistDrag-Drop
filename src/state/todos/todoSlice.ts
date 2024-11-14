@@ -8,14 +8,22 @@ import { LocalStorageService } from "../../services/LocalStorageServices";
 export interface TodoState {
   allTodos: ITodo[];
   filteredTodos: ITodo[];
-  todoTags: string[] ;
+  todoTags: string[]  | any;
   selectedTag: string;
 }
 
+const tagsPromise = LocalStorageService.get("tags").then(t => t).then(t => t || []);
+
+
+  // console.log(tagsPromise, "tagsPromise");
+
+
 const initialState: TodoState = {
+
+
   allTodos: [],
   filteredTodos: [],
-  todoTags: await LocalStorageService.get("tags") || [] ,
+  todoTags: tagsPromise,
   selectedTag: "",
 };
 
