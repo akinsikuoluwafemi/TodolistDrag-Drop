@@ -15,7 +15,7 @@ interface TodoCardProps {
   index?: number
 }
 
-const TodoCardWithActions = ({ todo }: TodoCardProps) => { 
+const TodoCardWithActions = ({ todo }: TodoCardProps) => {
     const dispatch = useDispatch();
   const { pathname } = useLocation();
   const navigate = useNavigate();
