@@ -81,7 +81,7 @@ const todoSlice = createSlice({
     setAllTodoTags: (state, action: PayloadAction<string[]>) => {
       state.todoTags = action.payload;
     },
-    filterByTag: (state, action: PayloadAction<string>) => { 
+    filterByTag: (state, action: PayloadAction<string>) => {
       state.selectedTag = action.payload;
       if (action.payload === "") {
         state.filteredTodos = state.allTodos;
