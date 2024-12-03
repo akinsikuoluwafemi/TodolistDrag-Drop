@@ -6,6 +6,9 @@ import EditTodo from "../pages/EditTodo";
 import { loader as editTodoLoader } from "../pages/EditTodo";
 import FlexAndGrid from "../pages/FlexAndGrid";
 import Grid from "../pages/Grid";
+import DisplayLocations from "../pages/Locations";
+import DisplayDogs from "../pages/DisplayDogs";
+
 
 
 export const router = createBrowserRouter(
@@ -14,7 +17,7 @@ export const router = createBrowserRouter(
       <Route
         path="/"
         element={<ListTodo />}
-        errorElement={<div>Failed to load</div>}
+        errorElement={<div>Failed to load</div>} // errorElement is optional
       >
         <Route errorElement={<div>Failed to Load</div>}>
           <Route index element={<HomePage />} />
@@ -28,6 +31,8 @@ export const router = createBrowserRouter(
       </Route>
       <Route path="/flex" element={<FlexAndGrid />} />
       <Route path="/grid" element={<Grid />} />
+      <Route path="/locations" element={<DisplayLocations />} />
+      <Route path="/dogs" element={<DisplayDogs />} />
     </>
   )
 );

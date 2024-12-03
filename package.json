@@ -13,6 +13,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@apollo/client": "^3.11.10",
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
     "@hello-pangea/dnd": "^16.6.0",
@@ -20,6 +21,7 @@
     "@mui/icons-material": "^5.16.5",
     "@mui/material": "^5.16.4",
     "@reduxjs/toolkit": "^2.2.6",
+    "graphql": "^16.9.0",
     "gsap": "^3.12.5",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
