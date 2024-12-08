@@ -10,20 +10,32 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
+  gql,
   // gql,
 } from "@apollo/client";
+import { link } from './schema';
 
 
 import "react-toastify/dist/ReactToastify.css";
 import "react-date-picker/dist/DatePicker.css";
 import "react-calendar/dist/Calendar.css";
+import { createFragmentRegistry } from '@apollo/client/cache';
 
 
 
 const client = new ApolloClient({
   uri: "https://flyby-router-demo.herokuapp.com/",
   // uri: "https://dog.ceo/api",
-  cache: new InMemoryCache(),
+  // cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    fragments: createFragmentRegistry(gql`
+     fragment ItemFragment on Item {
+      id
+      text
+     }
+    `),
+  }),
+  // link
 });
 
 
@@ -43,11 +55,11 @@ const client = new ApolloClient({
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ApolloProvider client={client}>
-      <Provider store={store}>
+    <Provider store={store}>
+      <ApolloProvider client={client}>
         <RouterProvider router={router} />
         <ToastContainer />
-      </Provider>
-    </ApolloProvider>
+      </ApolloProvider>
+    </Provider>
   </React.StrictMode>
 );

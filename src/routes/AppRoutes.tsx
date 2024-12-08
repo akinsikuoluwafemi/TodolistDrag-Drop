@@ -8,6 +8,7 @@ import FlexAndGrid from "../pages/FlexAndGrid";
 import Grid from "../pages/Grid";
 import DisplayLocations from "../pages/Locations";
 import DisplayDogs from "../pages/DisplayDogs";
+import { FetchingWithSuspense } from "../pages";
 
 
 
@@ -33,6 +34,7 @@ export const router = createBrowserRouter(
       <Route path="/grid" element={<Grid />} />
       <Route path="/locations" element={<DisplayLocations />} />
       <Route path="/dogs" element={<DisplayDogs />} />
+      <Route path="/fetching-with-suspense" element={<FetchingWithSuspense />} />
     </>
   )
 );

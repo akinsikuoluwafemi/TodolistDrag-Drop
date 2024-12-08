@@ -20,7 +20,7 @@
     "@hookform/resolvers": "^3.9.0",
     "@mui/icons-material": "^5.16.5",
     "@mui/material": "^5.16.4",
-    "@reduxjs/toolkit": "^2.2.6",
+    "@reduxjs/toolkit": "^2.4.0",
     "graphql": "^16.9.0",
     "gsap": "^3.12.5",
     "localforage": "^1.10.0",
@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
+    "@storybook/addon-a11y": "^8.4.7",
     "@storybook/addon-essentials": "^8.4.6",
     "@storybook/addon-interactions": "^8.4.6",
     "@storybook/addon-onboarding": "^8.4.6",

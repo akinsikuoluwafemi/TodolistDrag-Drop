@@ -1,0 +1,1 @@
+export { default as FetchingWithSuspense } from './fetching-with-suspense';
